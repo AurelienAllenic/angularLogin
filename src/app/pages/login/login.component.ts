@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   loginObj: Login;
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private router: Router){
     this.loginObj= new Login();
   }
 
@@ -20,6 +21,7 @@ export class LoginComponent {
       const user = users.find(u => u.EmailId === this.loginObj.EmailId && u.Password === this.loginObj.Password);
       if (user) {
         alert("Login success");
+        this.router.navigateByUrl('/dashboard')
       } else {
         alert("Invalid credentials");
       }
