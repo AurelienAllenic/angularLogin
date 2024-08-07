@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+### To use
+
+1. npm install
+
+2. Create at root a db.json file like this : 
+
+```
+{
+    "users": [
+      { "EmailId": "test@example.com", "Password": "password123", "result": true, "message": "Login success" },
+      { "EmailId": "user@example.com", "Password": "wrongpassword", "result": false, "message": "Invalid credentials" }
+    ]
+  }
+```
+
+3. Run your back server with ```json-server --watch db.json```
+
+4. Run your front with ```ng s --o```
